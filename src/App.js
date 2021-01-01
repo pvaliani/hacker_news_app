@@ -37,6 +37,7 @@ function App() { // Container for the articleIds and stories state
       // this is the fetch which retrieves all top story ids as a single .json object
     .then((res)=>res.json())
     .then((data)=>{
+      // setArticleId's will take this new data i.e all the story ID's from the top 500 stories and store it in the useState
       setArticleIds(data);
     });
 
@@ -46,8 +47,13 @@ function App() { // Container for the articleIds and stories state
   // A fetch returns an object - when we make a call using fetch and it returns a promise object to say it will provide the data - it requires time  because its making a get request to the server - fetch is an asynchronous type. UseEffect watches a part of our state variable i.e article id's then triggers a function. So it watches for an articleID then when there is an article Id it will do a fetch for the actual story object.
 
   useEffect(()=>{ // watches a part of your state (a single state variable)
+
+    // perform the fetch of story data using the articleId's which have come from setArticleId's in useState, do this for the first 15 stories
+
     fetchStoryData(articleIds, 15);
   },[articleIds])
+
+  // articleId's array on line 54 means the array i.e program will run for the full list of articleID objects
 
     // The second useEffect here will watch the articleIDs so when the articleIDs change we want to fetch the story data
 
