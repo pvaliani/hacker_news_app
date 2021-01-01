@@ -53,7 +53,7 @@ function App() { // Container for the articleIds and stories state
     fetchStoryData(articleIds, 15);
   },[articleIds])
 
-  // articleId's array on line 54 means the array i.e program will run for the full list of articleID objects
+  // articleId's array on line 54 means the array i.e program will run for the full list of articleID objects - useEffect takes this array as a second argument
 
     // The second useEffect here will watch the articleIDs so when the articleIDs change we want to fetch the story data
 
